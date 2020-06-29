@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types';
 import { View, Text } from 'react-native'
+import Flag from 'react-native-flags'
 import styles from './Styles/CountryViewStyle'
 import ColoredData from './ColoredData'
 import { Colors } from '../Themes'
@@ -23,6 +24,11 @@ export default class CountryView extends Component {
     const {data} = this.props
     return (
       <View style={styles.container}>
+        <Flag
+          style={styles.flag}
+          code={data.CountryCode}
+          size={32}
+        />
         <View style={{justifyContent: 'space-around', flexDirection: 'row'}} >
           <Text style={[styles.sectionText, {fontWeight: 'bold'}]}>{data.Country}</Text>
           <Text style={styles.sectionText}>{moment(data.Date).format('MMMM Do YYYY')}</Text>

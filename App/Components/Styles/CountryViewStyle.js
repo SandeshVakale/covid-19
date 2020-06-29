@@ -9,5 +9,10 @@ export default StyleSheet.create({
     borderRadius: 5,
     margin: 10,
     borderColor: Colors.silver
+  },
+  flag: {
+    alignSelf: 'center',
+    marginTop: 10,
+    marginBottom: -10
   }
 })
