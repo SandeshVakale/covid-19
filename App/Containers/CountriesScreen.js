@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { View, TextInput } from 'react-native'
 import { connect } from 'react-redux'
 import { SearchableFlatList } from 'react-native-searchable-list'
 import CountryView from '../Components/CountryView'
@@ -11,18 +11,29 @@ import styles from './Styles/CountriesScreenStyle'
 import { Colors } from '../Themes'
 
 class CountriesScreen extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      searchTerm: ''
+    }
+  }
   render () {
     const { summary } = this.props
     return (
       <View style={styles.container}>
         <View style={[styles.backgroundImage, { backgroundColor: Colors.ember }]} />
+        <TextInput
+          style={styles.sectionText}
+          placeholder={'Search Countries'}
+          onChangeText={searchTerm => this.setState({ searchTerm })}
+        />
         <SearchableFlatList
           searchAttribute={'Country'}
-          searchTerm={''}
+          searchTerm={this.state.searchTerm}
           data={summary.payload.Countries}
           containerStyle={{ flex: 1 }}
           renderItem={({ item }) => <CountryView data={item} />}
-          keyExtractor={item => item.id}
+          keyExtractor={item => item.slug}
         />
       </View>
     )
@@ -35,9 +46,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(CountriesScreen)
+export default connect(mapStateToProps, null)(CountriesScreen)

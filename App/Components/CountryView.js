@@ -22,8 +22,11 @@ export default class CountryView extends Component {
     const {data} = this.props
     return (
       <View style={styles.container}>
-        <Text style={styles.sectionText}>{data.Country}</Text>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }} >
+        <View style={{justifyContent: 'space-around'}} >
+          <Text style={styles.sectionText}>{data.Country}</Text>
+          <Text style={styles.sectionText}>{data.Date}</Text>
+        </View>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-around' }} >
           <View style={{ flexDirection: 'column', paddingLeft: 5 }} >
             <ColoredData color={Colors.error} text={'Total Deaths: ' + data.TotalDeaths} />
             <ColoredData color={Colors.green} text={'Total Recovered: ' + data.TotalRecovered} />
