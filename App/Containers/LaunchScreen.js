@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { Colors } from '../Themes'
 import SummaryActions from '../Redux/SummaryRedux'
 import PieChart from '../Components/PieChart'
+import FullButton from '../Components/FullButton'
+import RoundedButton from '../Components/RoundedButton'
 
 // Styles
 import styles from './Styles/LaunchScreenStyles'
@@ -34,6 +36,7 @@ class LaunchScreen extends Component {
               <ColoredData color={Colors.blue} text={'New Confirmed: ' + global.NewConfirmed} />
               <ColoredData color={Colors.yellow} text={'New Deaths: ' + global.NewDeaths} />
               <ColoredData color={Colors.bloodOrange} text={'New Recovered: ' + global.NewRecovered} />
+              <RoundedButton text={'rounded'} />
             </View>
           </ScrollView>
         </View>
