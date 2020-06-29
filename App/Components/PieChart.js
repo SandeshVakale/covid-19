@@ -4,7 +4,6 @@ import { View, Text } from 'react-native'
 import styles from './Styles/PieChartStyle'
 import Pie from 'react-native-pie'
 import { Colors } from '../Themes'
-import ColoredData from './ColoredData'
 
 export default class PieChart extends Component {
   // // Prop type warnings
@@ -32,8 +31,8 @@ TotalRecovered: 4944906 */
       <View style={styles.container}>
         <View style={styles.subContainer} >
           <Pie
-            radius={100}
-            innerRadius={70}
+            radius={80}
+            innerRadius={60}
             sections={[
               {
                 percentage: (global.TotalDeaths / global.TotalConfirmed) * 100,
