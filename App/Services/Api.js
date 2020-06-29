@@ -35,6 +35,8 @@ const create = (baseURL = 'https://api.covid19api.com/') => {
   // way at this level.
   //
   const getRoot = () => api.get('')
+  const getRate = () => api.get('rate_limit')
+  const getUser = (username) => api.get('search/users', {q: username})
   const getSummary = () => api.get('summary')
 
   // ------
@@ -52,6 +54,8 @@ const create = (baseURL = 'https://api.covid19api.com/') => {
   return {
     // a list of the API functions from step 2
     getRoot,
+    getRate,
+    getUser,
     getSummary
   }
 }

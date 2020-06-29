@@ -20,7 +20,6 @@ export function * getSummary (api) {
   // const currentData = yield select(SummarySelectors.getData)
   // make the call to the api
   const response = yield call(api.getSummary)
-
   // success?
   if (response.ok) {
     // You might need to change the response here - do this with a 'transform',

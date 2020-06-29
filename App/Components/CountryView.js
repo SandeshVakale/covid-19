@@ -5,6 +5,7 @@ import styles from './Styles/CountryViewStyle'
 import ColoredData from './ColoredData'
 import { Colors } from '../Themes'
 import PieChart from './PieChart'
+import moment from 'moment'
 
 export default class CountryView extends Component {
   // // Prop type warnings
@@ -22,9 +23,9 @@ export default class CountryView extends Component {
     const {data} = this.props
     return (
       <View style={styles.container}>
-        <View style={{justifyContent: 'space-around'}} >
-          <Text style={styles.sectionText}>{data.Country}</Text>
-          <Text style={styles.sectionText}>{data.Date}</Text>
+        <View style={{justifyContent: 'space-around', flexDirection: 'row'}} >
+          <Text style={[styles.sectionText, {fontWeight: 'bold'}]}>{data.Country}</Text>
+          <Text style={styles.sectionText}>{moment(data.Date).format('MMMM Do YYYY')}</Text>
         </View>
         <View style={{ flexDirection: 'row', justifyContent: 'space-around' }} >
           <View style={{ flexDirection: 'column', paddingLeft: 5 }} >
@@ -34,7 +35,7 @@ export default class CountryView extends Component {
             <ColoredData color={Colors.yellow} text={'New Deaths: ' + data.NewDeaths} />
             <ColoredData color={Colors.bloodOrange} text={'New Recovered: ' + data.NewRecovered} />
           </View>
-          <PieChart global={data} />
+          <PieChart global={data} radius={50} innerRadius={40} />
         </View>
       </View>
     )

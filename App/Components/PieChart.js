@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { View, Text } from 'react-native'
 import styles from './Styles/PieChartStyle'
 import Pie from 'react-native-pie'
@@ -7,15 +7,16 @@ import { Colors } from '../Themes'
 
 export default class PieChart extends Component {
   // // Prop type warnings
-  // static propTypes = {
-  //   someProperty: PropTypes.object,
-  //   someSetting: PropTypes.bool.isRequired,
-  // }
+  static propTypes = {
+    radius: PropTypes.integer,
+    innerRadius: PropTypes.integer
+  }
   //
-  // // Defaults for props
-  // static defaultProps = {
-  //   someSetting: false
-  // }
+  // Defaults for props
+  static defaultProps = {
+    radius: 100,
+    innerRadius: 80
+  }
 
   /* NewConfirmed: 191909
 NewDeaths: 4873
@@ -25,14 +26,13 @@ TotalDeaths: 502735
 TotalRecovered: 4944906 */
 
   render () {
-    const { global } = this.props
-    console.log(global)
+    const { global, radius, innerRadius } = this.props
     return (
       <View style={styles.container}>
         <View style={styles.subContainer} >
           <Pie
-            radius={80}
-            innerRadius={60}
+            radius={radius}
+            innerRadius={innerRadius}
             sections={[
               {
                 percentage: (global.TotalDeaths / global.TotalConfirmed) * 100,

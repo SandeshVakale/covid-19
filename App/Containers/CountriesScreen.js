@@ -25,6 +25,7 @@ class CountriesScreen extends Component {
         <TextInput
           style={styles.sectionText}
           placeholder={'Search Countries'}
+          placeholderTextColor={Colors.silver}
           onChangeText={searchTerm => this.setState({ searchTerm })}
         />
         <SearchableFlatList
