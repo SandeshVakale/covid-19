@@ -8,8 +8,8 @@ import { Colors } from '../Themes'
 export default class PieChart extends Component {
   // // Prop type warnings
   static propTypes = {
-    radius: PropTypes.integer,
-    innerRadius: PropTypes.integer
+    radius: PropTypes.number,
+    innerRadius: PropTypes.number
   }
   //
   // Defaults for props
@@ -17,13 +17,6 @@ export default class PieChart extends Component {
     radius: 100,
     innerRadius: 80
   }
-
-  /* NewConfirmed: 191909
-NewDeaths: 4873
-NewRecovered: 106636
-TotalConfirmed: 9905480
-TotalDeaths: 502735
-TotalRecovered: 4944906 */
 
   render () {
     const { global, radius, innerRadius } = this.props

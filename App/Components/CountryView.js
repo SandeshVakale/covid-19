@@ -7,6 +7,7 @@ import ColoredData from './ColoredData'
 import { Colors } from '../Themes'
 import PieChart from './PieChart'
 import moment from 'moment'
+import RoundedButton from './RoundedButton'
 
 export default class CountryView extends Component {
   // // Prop type warnings
@@ -21,7 +22,7 @@ export default class CountryView extends Component {
   // }
 
   render () {
-    const {data} = this.props
+    const {data, onPress} = this.props
     return (
       <View style={styles.container}>
         <Flag
@@ -43,6 +44,7 @@ export default class CountryView extends Component {
           </View>
           <PieChart global={data} radius={50} innerRadius={40} />
         </View>
+        <RoundedButton text={'By Date'} onPress={onPress} />
       </View>
     )
   }
