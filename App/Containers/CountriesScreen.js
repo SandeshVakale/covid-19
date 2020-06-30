@@ -3,6 +3,7 @@ import { View, TextInput } from 'react-native'
 import { connect } from 'react-redux'
 import { SearchableFlatList } from 'react-native-searchable-list'
 import CountryView from '../Components/CountryView'
+import BackButton from '../Components/BackButton'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 
@@ -36,6 +37,9 @@ class CountriesScreen extends Component {
           renderItem={({ item }) => <CountryView key={item.slug} data={item} onPress={() => this.props.navigation.navigate('DetailCountryScreen', {item})} />}
           keyExtractor={item => item.slug}
         />
+        <View style={{position: 'absolute', bottom: 10, alignSelf: 'center'}}>
+          <BackButton onPress={() => this.props.navigation.goBack()} />
+        </View>
       </View>
     )
   }

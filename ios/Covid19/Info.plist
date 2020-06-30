@@ -30,6 +30,10 @@
 		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
+		<key>UIAppFonts</key>
+    	<array>
+    		<string>FontAwesome.ttf</string>
+    	</array>
 			<key>localhost</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>

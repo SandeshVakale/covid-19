@@ -8,6 +8,7 @@ import { Colors } from '../Themes'
 import PieChart from './PieChart'
 import moment from 'moment'
 import RoundedButton from './RoundedButton'
+import BackButton from './BackButton'
 
 export default class CountryView extends Component {
   // // Prop type warnings

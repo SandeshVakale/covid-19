@@ -9,6 +9,7 @@ import DetailCountryView from '../Components/DetailCountryView'
 // Styles
 import styles from './Styles/DetailCountryScreenStyle'
 import { Colors } from '../Themes'
+import BackButton from '../Components/BackButton'
 
 class DetailCountryScreen extends Component {
   componentDidMount () {
@@ -31,6 +32,9 @@ class DetailCountryScreen extends Component {
           />
           <Text style={[styles.sectionText, { fontSize: 28 }]}>{item.Country}</Text>
           <FlatList data={dayone.payload} renderItem={(item) => <DetailCountryView data={item} />} />
+          <View style={{position: 'absolute', bottom: 10, alignSelf: 'center'}}>
+            <BackButton onPress={() => this.props.navigation.goBack()} />
+          </View>
         </View>
       )
     } else {
@@ -38,6 +42,9 @@ class DetailCountryScreen extends Component {
         <View style={styles.container}>
           <View style={[styles.backgroundImage, { backgroundColor: Colors.ember }]} />
           <ActivityIndicator style={{ alignSelf: 'center' }} />
+          <View style={{position: 'absolute', bottom: 10, alignSelf: 'center'}}>
+            <BackButton onPress={() => this.props.navigation.goBack()} />
+          </View>
         </View>
       )
     }
