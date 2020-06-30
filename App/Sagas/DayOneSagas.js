@@ -11,21 +11,23 @@
 *************************************************************/
 
 import { call, put } from 'redux-saga/effects'
-import SummaryActions from '../Redux/SummaryRedux'
-// import { SummarySelectors } from '../Redux/SummaryRedux'
+import DayOneActions from '../Redux/DayOneRedux'
+// import { DayOneSelectors } from '../Redux/DayOneRedux'
 
-export function * getSummary (api) {
-  // const { data } = action
+export function * getDayOne (api, action) {
+  const { slug } = action
   // get current data from Store
-  // const currentData = yield select(SummarySelectors.getData)
+  // const currentData = yield select(DayOneSelectors.getData)
   // make the call to the api
-  const response = yield call(api.getSummary)
+  const response = yield call(api.getDayOne, slug)
+
   // success?
+  console.log('response dayOne', response)
   if (response.ok) {
     // You might need to change the response here - do this with a 'transform',
     // located in ../Transforms/. Otherwise, just pass the data back from the api.
-    yield put(SummaryActions.summarySuccess(response.data))
+    yield put(DayOneActions.dayOneSuccess(response.data))
   } else {
-    yield put(SummaryActions.summaryFailure())
+    yield put(DayOneActions.dayOneFailure())
   }
 }

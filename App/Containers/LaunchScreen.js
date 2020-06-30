@@ -36,7 +36,7 @@ class LaunchScreen extends Component {
               <ColoredData color={Colors.blue} text={'New Confirmed: ' + global.NewConfirmed} />
               <ColoredData color={Colors.yellow} text={'New Deaths: ' + global.NewDeaths} />
               <ColoredData color={Colors.bloodOrange} text={'New Recovered: ' + global.NewRecovered} />
-              <RoundedButton text={'rounded'} />
+              <RoundedButton text={'By Countries'} onPress={() => this.props.navigation.navigate('CountriesScreen')} />
             </View>
           </ScrollView>
         </View>

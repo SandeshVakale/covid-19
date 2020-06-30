@@ -9,7 +9,8 @@ export const reducers = combineReducers({
   nav: require('./NavigationRedux').reducer,
   github: require('./GithubRedux').reducer,
   search: require('./SearchRedux').reducer,
-  summary: require('./SummaryRedux').reducer
+  summary: require('./SummaryRedux').reducer,
+  dayone: require('./DayOneRedux').reducer
 })
 
 export default () => {
