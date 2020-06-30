@@ -38,6 +38,7 @@ const create = (baseURL = 'https://api.covid19api.com/') => {
   const getRate = () => api.get('rate_limit')
   const getUser = (username) => api.get('search/users', {q: username})
   const getSummary = () => api.get('summary')
+  const getDayOne = (slug) => api.get(`total/dayone/country/${slug}`)
 
   // ------
   // STEP 3
@@ -56,7 +57,8 @@ const create = (baseURL = 'https://api.covid19api.com/') => {
     getRoot,
     getRate,
     getUser,
-    getSummary
+    getSummary,
+    getDayOne
   }
 }
 
